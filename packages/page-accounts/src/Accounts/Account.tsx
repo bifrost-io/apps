@@ -19,6 +19,7 @@ import { ApiPromise } from '@polkadot/api';
 import { AddressInfo, AddressMini, AddressSmall, Badge, Button, ChainLock, CryptoType, Forget, Icon, IdentityIcon, LinkExternal, Menu, Popup, StatusContext, Tags } from '@polkadot/react-components';
 import { useAccountInfo, useApi, useBestNumber, useCall, useLedger, useToggle } from '@polkadot/react-hooks';
 import { keyring } from '@polkadot/ui-keyring';
+import { settings } from '@polkadot/ui-settings';
 import { BN_ZERO, formatBalance, formatNumber, isFunction } from '@polkadot/util';
 
 import Backup from '../modals/Backup';
@@ -115,6 +116,50 @@ function Account ({ account: { address, meta }, className = '', delegation, filt
   const [isTransferOpen, toggleTransfer] = useToggle();
   const [isDelegateOpen, toggleDelegate] = useToggle();
   const [isUndelegateOpen, toggleUndelegate] = useToggle();
+  const [isBifrostNode, setIsBifrostNode] = useState(false);
+
+  // get bifrost assets
+  useEffect((): void => {
+    const getAssets = async (): void => {
+      switch (settings.get().apiUrl) {
+        case 'wss://bifrost-rpc.liebi.com/ws':
+          const result1 = await api.api.query.system.account(address);
+
+          setIsBifrostNode(true);
+          break;
+        case 'wss://asgard-rpc.liebi.com/ws':
+          const result2 = await api.api.query.voucher.balancesVoucher(address);
+
+          setIsBifrostNode(true);
+          break;
+        default:
+          setIsBifrostNode(false);
+      }
+
+      const result3 = await api.api.query.assets.accounts(address, { token: 'KSM' });
+
+      console.log('---result3', result3.free.toString());
+      // api.api.query.assets.accounts(address, { stable: 'aUSD' });
+      // api.api.query.assets.accounts(address, { token: 'KSM' });
+      // api.api.query.assets.accounts(address, { token: 'DOT' });
+      // api.api.query.assets.accounts(address, { token: 'ETH' });
+      // api.api.query.assets.accounts(address, { vToken: 'KSM' });
+      // api.api.query.assets.accounts(address, { vToken: 'DOT' });
+      // api.api.query.assets.accounts(address, { vToken: 'ETH' });
+    };
+
+    getAssets();
+    // if (getAssetByToken(assetId)?.id === 0 && assetId !== 'BNC') {
+    //   const result = await api.query.system.account(address);
+    //   return result.data.free.toString();
+    // }
+    // if (getAssetByToken(assetId)?.id === 0 && assetId === 'BNC') {
+    //   const result = await api.query.voucher.balancesVoucher(address);
+    //   return result.toString();
+    // }
+
+    // const result = await api.query.assets.accounts(address, assetTypeFormat(assetId));
+  }, [address, api, balancesAll, setBalance]);
 
   useEffect((): void => {
     if (balancesAll) {
