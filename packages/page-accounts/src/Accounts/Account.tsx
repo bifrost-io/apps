@@ -116,29 +116,29 @@ function Account ({ account: { address, meta }, className = '', delegation, filt
   const [isTransferOpen, toggleTransfer] = useToggle();
   const [isDelegateOpen, toggleDelegate] = useToggle();
   const [isUndelegateOpen, toggleUndelegate] = useToggle();
-  const [isBifrostNode, setIsBifrostNode] = useState(false);
+  const [bifrostNode, setBifrostNode] = useState('');
 
   // get bifrost assets
   useEffect((): void => {
     const getAssets = async (): void => {
       switch (settings.get().apiUrl) {
         case 'wss://bifrost-rpc.liebi.com/ws':
-          const result1 = await api.api.query.system.account(address);
-
-          setIsBifrostNode(true);
+          // const result1 = await api.api.query.system.account(address);
+          setBifrostNode('bifrost');
           break;
         case 'wss://asgard-rpc.liebi.com/ws':
-          const result2 = await api.api.query.voucher.balancesVoucher(address);
+          const asg = await api.api.query.system.account(address);
+          const bnc = await api.api.query.voucher.balancesVoucher(address);
+          const aUSD = await api.api.query.assets.accounts(address, { stable: 'aUSD' });
+          const ksm = await api.api.query.assets.accounts(address, { token: 'KSM' });
 
-          setIsBifrostNode(true);
+          console.log('---result2', asg.toHuman(), bnc.toHuman(), aUSD.toHuman(), ksm.toHuman());
+          setBifrostNode('asgard');
           break;
         default:
-          setIsBifrostNode(false);
+          setBifrostNode('');
       }
 
-      const result3 = await api.api.query.assets.accounts(address, { token: 'KSM' });
-
-      console.log('---result3', result3.free.toString());
       // api.api.query.assets.accounts(address, { stable: 'aUSD' });
       // api.api.query.assets.accounts(address, { token: 'KSM' });
       // api.api.query.assets.accounts(address, { token: 'DOT' });
@@ -149,16 +149,6 @@ function Account ({ account: { address, meta }, className = '', delegation, filt
     };
 
     getAssets();
-    // if (getAssetByToken(assetId)?.id === 0 && assetId !== 'BNC') {
-    //   const result = await api.query.system.account(address);
-    //   return result.data.free.toString();
-    // }
-    // if (getAssetByToken(assetId)?.id === 0 && assetId === 'BNC') {
-    //   const result = await api.query.voucher.balancesVoucher(address);
-    //   return result.toString();
-    // }
-
-    // const result = await api.query.assets.accounts(address, assetTypeFormat(assetId));
   }, [address, api, balancesAll, setBalance]);
 
   useEffect((): void => {
