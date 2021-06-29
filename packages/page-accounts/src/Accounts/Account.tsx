@@ -17,6 +17,7 @@ import styled, { ThemeContext } from 'styled-components';
 
 import { ApiPromise } from '@polkadot/api';
 import { AddressInfo, AddressMini, AddressSmall, Badge, Button, ChainLock, CryptoType, Forget, Icon, IdentityIcon, LinkExternal, Menu, Popup, StatusContext, Tags } from '@polkadot/react-components';
+import AddressBifrostInfo from '@polkadot/react-components/AddressBifrostInfo';
 import { useAccountInfo, useApi, useBestNumber, useCall, useLedger, useToggle } from '@polkadot/react-hooks';
 import { keyring } from '@polkadot/ui-keyring';
 import { settings } from '@polkadot/ui-settings';
@@ -117,6 +118,7 @@ function Account ({ account: { address, meta }, className = '', delegation, filt
   const [isDelegateOpen, toggleDelegate] = useToggle();
   const [isUndelegateOpen, toggleUndelegate] = useToggle();
   const [bifrostNode, setBifrostNode] = useState('');
+  const [bifrostAssets, setBifrostAssets] = useState('');
 
   // get bifrost assets
   useEffect((): void => {
@@ -127,25 +129,22 @@ function Account ({ account: { address, meta }, className = '', delegation, filt
           setBifrostNode('bifrost');
           break;
         case 'wss://asgard-rpc.liebi.com/ws':
-          const asg = await api.api.query.system.account(address);
-          const bnc = await api.api.query.voucher.balancesVoucher(address);
+          const ASG = await api.api.query.system.account(address);
+          const BNC = await api.api.query.voucher.balancesVoucher(address);
           const aUSD = await api.api.query.assets.accounts(address, { stable: 'aUSD' });
-          const ksm = await api.api.query.assets.accounts(address, { token: 'KSM' });
+          const KSM = await api.api.query.assets.accounts(address, { token: 'KSM' });
+          const DOT = await api.api.query.assets.accounts(address, { token: 'DOT' });
+          const ETH = await api.api.query.assets.accounts(address, { token: 'ETH' });
+          const vKSM = await api.api.query.assets.accounts(address, { vToken: 'KSM' });
+          const vDOT = await api.api.query.assets.accounts(address, { vToken: 'DOT' });
+          const vETH = await api.api.query.assets.accounts(address, { vToken: 'ETH' });
 
-          console.log('---result2', asg.toHuman(), bnc.toHuman(), aUSD.toHuman(), ksm.toHuman());
+          setBifrostAssets({ ASG, BNC, aUSD, KSM, DOT, ETH, vKSM, vDOT, vETH });
           setBifrostNode('asgard');
           break;
         default:
           setBifrostNode('');
       }
-
-      // api.api.query.assets.accounts(address, { stable: 'aUSD' });
-      // api.api.query.assets.accounts(address, { token: 'KSM' });
-      // api.api.query.assets.accounts(address, { token: 'DOT' });
-      // api.api.query.assets.accounts(address, { token: 'ETH' });
-      // api.api.query.assets.accounts(address, { vToken: 'KSM' });
-      // api.api.query.assets.accounts(address, { vToken: 'DOT' });
-      // api.api.query.assets.accounts(address, { vToken: 'ETH' });
     };
 
     getAssets();
@@ -617,12 +616,20 @@ function Account ({ account: { address, meta }, className = '', delegation, filt
         {balancesAll?.accountNonce.gt(BN_ZERO) && formatNumber(balancesAll.accountNonce)}
       </td>
       <td className='number'>
-        <AddressInfo
-          address={address}
-          withBalance
-          withBalanceToggle
-          withExtended={false}
-        />
+        {bifrostNode === 'asgard'
+          ? <AddressBifrostInfo
+            address={address}
+            assets = {bifrostAssets}
+            withBalance
+            withBalanceToggle
+            withExtended={false}
+          />
+          : <AddressInfo
+            address={address}
+            withBalance
+            withBalanceToggle
+            withExtended={false}
+          />}
       </td>
       <td className='button'>
         {isFunction(api.api.tx.balances?.transfer) && (
