@@ -25,8 +25,8 @@ export function createRococo (t: TFunction): EndpointOption {
       Parity: 'wss://rococo-rpc.polkadot.io',
       OnFinality: 'wss://rococo.api.onfinality.io/public-ws',
       'Patract Elara': 'wss://rococo.elara.patract.io',
-      'Ares Protocol': 'wss://rococo.aresprotocol.com',
-      Pinknode: 'wss://rpc.pinknode.io/rococo/explorer'
+      'Ares Protocol': 'wss://rococo.aresprotocol.com'
+      // Pinknode: 'wss://rpc.pinknode.io/rococo/explorer' // https://github.com/polkadot-js/apps/issues/5721
     },
     linked: [
       // these are the base chains
@@ -299,7 +299,7 @@ export function createRococo (t: TFunction): EndpointOption {
         paraId: 2037,
         text: t('rpc.origintrail', 'OriginTrail Parachain', { ns: 'apps-config' }),
         providers: {
-          'Trace Labs': 'wss://parachain-rpc.origin-trail.network'
+          'Trace Labs': 'wss://polkadot-js-second.origin-trail.network'
         }
       },
       {
