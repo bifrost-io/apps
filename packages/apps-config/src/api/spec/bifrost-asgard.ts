@@ -14,7 +14,7 @@ const definitions: OverrideBundleDefinition = {
         TokenSymbol: {
           _enum: {
             ASG: 0,
-            aUSD: 2,
+            AUSD: 2,
             DOT: 3,
             KSM: 4,
             ETH: 5
@@ -32,7 +32,7 @@ const definitions: OverrideBundleDefinition = {
         },
         CurrencyIdOf: 'CurrencyId',
         TAssetBalance: 'Balance',
-        AmountOf: 'i128',
+        AmountOf: 'Balance',
         StorageVersion: 'Releases',
         ShareWeight: 'Balance',
         OrmlAccountData: {
@@ -50,12 +50,65 @@ const definitions: OverrideBundleDefinition = {
         },
         IsExtended: 'bool',
         SystemPalletId: 'PalletId',
+        TrieIndex: 'u32',
+        FundInfo: {
+          depositor: 'AccountId',
+          deposit: 'Balance',
+          raised: 'Balance',
+          cap: 'Balance',
+          first_slot: 'LeasePeriod',
+          last_slot: 'LeasePeriod',
+          trie_index: 'TrieIndex',
+          status: 'FundStatus'
+        },
+        FundStatus: {
+          _enum: [
+            'Ongoing',
+            'Retired',
+            'Success',
+            'Failed',
+            'Withdrew',
+            'End'
+          ]
+        },
+        ContributionStatus: {
+          _enum: [
+            'Contributing',
+            'Contributed',
+            'Redeeming',
+            'Redeemed'
+          ]
+        },
+        CrowdloanContributeCall: {
+          _enum: {
+            CrowdloanContribute: 'ContributeCall'
+          }
+        },
+        ContributeCall: {
+          _enum: {
+            Contribute: 'Contribution'
+          }
+        },
+        Contribution: {
+          index: 'ParaId',
+          value: 'BalanceOf',
+          signature: 'Option<MultiSignature>'
+        },
+        Withdraw: {
+          who: 'AccountIdOf',
+          index: 'ParaId'
+        },
+        WithdrawCall: {
+          _enum: {
+            Withdraw: 'Withdraw'
+          }
+        },
         RewardRecord: {
           account_id: 'AccountId',
           record_amount: 'Balance'
         },
         MaxLocksOf: 'u32',
-        VestingInfo: {
+        BifrostVestingInfo: {
           locked: 'Balance',
           per_block: 'Balance',
           starting_block: 'BlockNumber'
@@ -63,10 +116,10 @@ const definitions: OverrideBundleDefinition = {
         OrderId: 'u64',
         OrderInfo: {
           owner: 'AccountIdOf',
-          currency_sold: 'CurrencyIdOf',
-          amount_sold: 'BalanceOf',
-          currency_expected: 'CurrencyIdOf',
-          amount_expected: 'BalanceOf',
+          vsbond: 'CurrencyId',
+          supply: 'u128',
+          remain: 'u128',
+          unit_price: 'u128',
           order_id: 'OrderId',
           order_state: 'OrderState'
         },
@@ -77,21 +130,21 @@ const definitions: OverrideBundleDefinition = {
             'Clinchd'
           ]
         },
-        AssetId: {
+        ZenlinkAssetId: {
           chain_id: 'u32',
           asset_type: 'u8',
           asset_index: 'u32'
         },
-        AssetBalance: 'u128',
+        ZenlinkAssetBalance: 'u128',
         PairInfo: {
-          asset0: 'AssetId',
-          asset1: 'AssetId',
+          asset0: 'ZenlinkAssetId',
+          asset1: 'ZenlinkAssetId',
           account: 'AccountId',
-          totalLiquidity: 'AssetBalance',
-          holdingLiquidity: 'AssetBalance',
-          reserve0: 'AssetBalance',
-          reserve1: 'AssetBalance',
-          lpAssetId: 'AssetId'
+          totalLiquidity: 'ZenlinkAssetBalance',
+          holdingLiquidity: 'ZenlinkAssetBalance',
+          reserve0: 'ZenlinkAssetBalance',
+          reserve1: 'ZenlinkAssetBalance',
+          lpAssetId: 'ZenlinkAssetId'
         },
         BancorPool: {
           currency_id: 'CurrencyId',
@@ -161,7 +214,7 @@ const definitions: OverrideBundleDefinition = {
             isOptional: true
           }
         ],
-        type: 'Vec<AssetId>',
+        type: 'Vec<ZenlinkAssetId>',
         isSubscription: false,
         jsonrpc: 'zenlinkProtocol_getAllAssets',
         method: 'getAllAssets',
@@ -172,7 +225,7 @@ const definitions: OverrideBundleDefinition = {
         params: [
           {
             name: 'asset_id',
-            type: 'AssetId'
+            type: 'ZenlinkAssetId'
           },
           {
             name: 'account',
@@ -195,7 +248,7 @@ const definitions: OverrideBundleDefinition = {
         params: [
           {
             name: 'asset_id',
-            type: 'AssetId'
+            type: 'ZenlinkAssetId'
           },
           {
             name: 'at',
@@ -251,11 +304,11 @@ const definitions: OverrideBundleDefinition = {
         params: [
           {
             name: 'asset_0',
-            type: 'AssetId'
+            type: 'ZenlinkAssetId'
           },
           {
             name: 'asset_1',
-            type: 'AssetId'
+            type: 'ZenlinkAssetId'
           },
           {
             name: 'at',
@@ -275,11 +328,11 @@ const definitions: OverrideBundleDefinition = {
         params: [
           {
             name: 'supply',
-            type: 'AssetBalance'
+            type: 'ZenlinkAssetBalance'
           },
           {
             name: 'path',
-            type: 'Vec<AssetId>'
+            type: 'Vec<ZenlinkAssetId>'
           },
           {
             name: 'at',
@@ -299,11 +352,11 @@ const definitions: OverrideBundleDefinition = {
         params: [
           {
             name: 'supply',
-            type: 'AssetBalance'
+            type: 'ZenlinkAssetBalance'
           },
           {
             name: 'path',
-            type: 'Vec<AssetId>'
+            type: 'Vec<ZenlinkAssetId>'
           },
           {
             name: 'at',
@@ -323,27 +376,27 @@ const definitions: OverrideBundleDefinition = {
         params: [
           {
             name: 'asset_0',
-            type: 'AssetId'
+            type: 'ZenlinkAssetId'
           },
           {
             name: 'asset_1',
-            type: 'AssetId'
+            type: 'ZenlinkAssetId'
           },
           {
             name: 'amount_0_desired',
-            type: 'AssetBalance'
+            type: 'ZenlinkAssetBalance'
           },
           {
             name: 'amount_1_desired',
-            type: 'AssetBalance'
+            type: 'ZenlinkAssetBalance'
           },
           {
             name: 'amount_0_min',
-            type: 'AssetBalance'
+            type: 'ZenlinkAssetBalance'
           },
           {
             name: 'amount_1_min',
-            type: 'AssetBalance'
+            type: 'ZenlinkAssetBalance'
           },
           {
             name: 'at',
@@ -361,8 +414,15 @@ const definitions: OverrideBundleDefinition = {
     }
   },
   alias: {
-    assets: {
+    tokens: {
       AccountData: 'OrmlAccountData'
+    },
+    vesting: {
+      VestingInfo: 'BifrostVestingInfo'
+    },
+    zenlinkProtocol: {
+      AssetBalance: 'ZenlinkAssetBalance',
+      AssetId: 'ZenlinkAssetId'
     }
   }
 };

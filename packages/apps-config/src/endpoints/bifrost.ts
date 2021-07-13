@@ -22,9 +22,11 @@ export function createBifrost (t: TFunction, firstOnly?: boolean): LinkOption[] 
       paraId: 2001,
       text: t('rpc.kusama.bifrost', 'Bifrost', { ns: 'apps-config' }),
       providers: {
-        'Bifrost Foundation': 'wss://bifrost-rpc.liebi.com/ws'
+        'Bifrost Foundation': 'wss://bifrost-rpc.liebi.com/ws',
+        OnFinality: 'wss://bifrost-parachain.api.onfinality.io/public-ws'
       }
     },
+
     {
       info: 'bifrost',
       text: t('rpc.test.bifrost', 'Bifrost Asgard', { ns: 'apps-config' }),
