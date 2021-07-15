@@ -157,7 +157,7 @@ const definitions: OverrideBundleDefinition = {
       }
     }],
   rpc: {
-    chargeTransactionFee: {
+    flexibleFee: {
       getFeeTokenAndAmount: {
         description: 'Get charging token type and amount in terms of flexible transaction fee.',
         params: [
@@ -178,9 +178,9 @@ const definitions: OverrideBundleDefinition = {
         ],
         type: '(CurrencyId, NumberOrHex)',
         isSubscription: false,
-        jsonrpc: 'chargeTransactionFee_getFeeTokenAndAmount',
+        jsonrpc: 'flexibleFee_getFeeTokenAndAmount',
         method: 'getFeeTokenAndAmount',
-        section: 'chargeTransactionFee'
+        section: 'flexibleFee'
       }
     },
     vtokenMint: {
