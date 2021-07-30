@@ -18,6 +18,13 @@ export function createTesting (t: TFunction, firstOnly?: boolean): LinkOption[] 
   return expandEndpoints(t, [
     // alphabetical based on chain name, e.g. Amber, Arcadia, Beresheet, ...
     {
+      info: 'aleph',
+      text: t('rpc.test.aleph', 'Aleph Zero', { ns: 'apps-config' }),
+      providers: {
+        'Aleph Zero Foundation': 'wss://test-api.alephzero.org'
+      }
+    },
+    {
       info: 'centrifuge',
       text: t('rpc.test.amber', 'Amber', { ns: 'apps-config' }),
       providers: {
@@ -40,13 +47,14 @@ export function createTesting (t: TFunction, firstOnly?: boolean): LinkOption[] 
     },
     {
       info: 'bifrost',
-      text: t('rpc.test.bifrost', 'Bifrost Asgard', { ns: 'apps-config' }),
+      text: t('rpc.test.bifrost', 'Bifrost', { ns: 'apps-config' }),
       providers: {
-        Bifrost: 'wss://asgard-rpc.liebi.com/ws'
+        Liebi: 'wss://asgard-rpc.liebi.com/ws'
       }
     },
     {
       info: 'bitcountry',
+      isDisabled: true, // https://github.com/polkadot-js/apps/issues/5860
       text: t('rpc.test.bitcountry', 'Bit.Country Tewai', { ns: 'apps-config' }),
       providers: {
         'Bit.Country': 'wss://whenua.bit.country'
@@ -92,7 +100,7 @@ export function createTesting (t: TFunction, firstOnly?: boolean): LinkOption[] 
     },
     {
       info: 'dock-testnet',
-      isDisabled: false,
+      isDisabled: true, // https://github.com/polkadot-js/apps/issues/5869
       text: t('rpc.test.dock-testnet', 'Dock', { ns: 'apps-config' }),
       providers: {
         'Dock Association': 'wss://danforth-1.dock.io'

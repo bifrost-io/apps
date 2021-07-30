@@ -14,7 +14,7 @@ import { expandEndpoints } from './util';
 //   text: The text to display on the dropdown
 //   value: The actual hosted secure websocket endpoint
 
-export function createBifrost (t: TFunction, firstOnly?: boolean): LinkOption[] {
+export function createBifrost(t: TFunction, firstOnly?: boolean): LinkOption[] {
   return expandEndpoints(t, [
     {
       info: 'bifrost',
@@ -23,7 +23,8 @@ export function createBifrost (t: TFunction, firstOnly?: boolean): LinkOption[] 
       text: t('rpc.kusama.bifrost', 'Bifrost', { ns: 'apps-config' }),
       providers: {
         'Bifrost Foundation': 'wss://bifrost-rpc.liebi.com/ws',
-        OnFinality: 'wss://bifrost-parachain.api.onfinality.io/public-ws'
+        OnFinality: 'wss://bifrost-parachain.api.onfinality.io/public-ws',
+        'Patract Elara': 'wss://bifrost.kusama.elara.patract.io'
       }
     },
 
