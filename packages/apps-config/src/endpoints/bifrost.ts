@@ -32,7 +32,7 @@ export function createBifrost(t: TFunction, firstOnly?: boolean): LinkOption[] {
       info: 'bifrost',
       text: t('rpc.test.bifrost', 'Bifrost Asgard', { ns: 'apps-config' }),
       providers: {
-        Bifrost: 'wss://asgard-rpc.liebi.com/ws'
+        Liebi: 'wss://asgard-rpc.liebi.com/ws'
       }
     }
   ], firstOnly);
