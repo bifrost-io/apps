@@ -19,7 +19,6 @@ import { ApiPromise } from '@polkadot/api';
 import { AddressInfo, AddressMini, AddressSmall, Badge, Button, ChainLock, CryptoType, Forget, Icon, IdentityIcon, LinkExternal, Menu, Popup, StatusContext, Tags } from '@polkadot/react-components';
 import { useAccountInfo, useApi, useBalancesAll, useBestNumber, useCall, useLedger, useStakingInfo, useToggle } from '@polkadot/react-hooks';
 import { keyring } from '@polkadot/ui-keyring';
-import { settings } from '@polkadot/ui-settings';
 import { BN_ZERO, formatBalance, formatNumber, isFunction } from '@polkadot/util';
 
 import Backup from '../modals/Backup';
@@ -130,38 +129,6 @@ function Account ({ account: { address, meta }, className = '', delegation, filt
   const [isTransferOpen, toggleTransfer] = useToggle();
   const [isDelegateOpen, toggleDelegate] = useToggle();
   const [isUndelegateOpen, toggleUndelegate] = useToggle();
-  const [bifrostNode, setBifrostNode] = useState('');
-  const [bifrostAssets, setBifrostAssets] = useState('');
-
-  // get bifrost assets
-  useEffect((): void => {
-    const getAssets = async (): void => {
-      switch (settings.get().apiUrl) {
-        case 'wss://bifrost-rpc.liebi.com/ws':
-          // const result1 = await api.api.query.system.account(address);
-          setBifrostNode('bifrost');
-          break;
-        case 'wss://asgard-rpc.liebi.com/ws':
-          const ASG = await api.api.query.system.account(address);
-          const BNC = await api.api.query.voucher.balancesVoucher(address);
-          const aUSD = await api.api.query.assets.accounts(address, { stable: 'aUSD' });
-          const KSM = await api.api.query.assets.accounts(address, { token: 'KSM' });
-          const DOT = await api.api.query.assets.accounts(address, { token: 'DOT' });
-          const ETH = await api.api.query.assets.accounts(address, { token: 'ETH' });
-          const vKSM = await api.api.query.assets.accounts(address, { vToken: 'KSM' });
-          const vDOT = await api.api.query.assets.accounts(address, { vToken: 'DOT' });
-          const vETH = await api.api.query.assets.accounts(address, { vToken: 'ETH' });
-
-          setBifrostAssets({ ASG, BNC, aUSD, KSM, DOT, ETH, vKSM, vDOT, vETH });
-          setBifrostNode('asgard');
-          break;
-        default:
-          setBifrostNode('');
-      }
-    };
-
-    getAssets();
-  }, [address, api, balancesAll, setBalance]);
 
   useEffect((): void => {
     if (balancesAll) {
