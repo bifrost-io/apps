@@ -13,7 +13,7 @@ import { createRococoRelay, createWestendRelay } from './testingRelays';
 
 export { CUSTOM_ENDPOINT_KEY } from './development';
 
-export function createWsEndpoints (t: TFunction, firstOnly?: boolean): LinkOption[] {
+export function createWsEndpoints (t: TFunction, firstOnly = false, withSort = true): LinkOption[] {
   return [
     {
       isDisabled: false,
@@ -45,7 +45,7 @@ export function createWsEndpoints (t: TFunction, firstOnly?: boolean): LinkOptio
       textBy: '',
       value: ''
     },
-    ...createPolkadotRelay(t, firstOnly),
+    ...createPolkadotRelay(t, firstOnly, withSort),
     {
       isDisabled: false,
       isHeader: true,
@@ -53,7 +53,7 @@ export function createWsEndpoints (t: TFunction, firstOnly?: boolean): LinkOptio
       textBy: '',
       value: ''
     },
-    ...createKusamaRelay(t, firstOnly),
+    ...createKusamaRelay(t, firstOnly, withSort),
     {
       isDisabled: false,
       isHeader: true,
@@ -62,7 +62,7 @@ export function createWsEndpoints (t: TFunction, firstOnly?: boolean): LinkOptio
       textBy: '',
       value: ''
     },
-    ...createWestendRelay(t, firstOnly),
+    ...createWestendRelay(t, firstOnly, withSort),
     {
       isDisabled: false,
       isHeader: true,
@@ -70,7 +70,7 @@ export function createWsEndpoints (t: TFunction, firstOnly?: boolean): LinkOptio
       textBy: '',
       value: ''
     },
-    ...createRococoRelay(t, firstOnly),
+    ...createRococoRelay(t, firstOnly, withSort),
     {
       isDisabled: false,
       isHeader: true,
@@ -79,7 +79,7 @@ export function createWsEndpoints (t: TFunction, firstOnly?: boolean): LinkOptio
       textBy: '',
       value: ''
     },
-    ...createProduction(t, firstOnly),
+    ...createProduction(t, firstOnly, withSort),
     {
       isDisabled: false,
       isHeader: true,
@@ -87,7 +87,7 @@ export function createWsEndpoints (t: TFunction, firstOnly?: boolean): LinkOptio
       textBy: '',
       value: ''
     },
-    ...createTesting(t, firstOnly),
+    ...createTesting(t, firstOnly, withSort),
     {
       isDevelopment: true,
       isDisabled: false,
