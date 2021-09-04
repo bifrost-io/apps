@@ -22,7 +22,7 @@ export function createWsEndpoints (t: TFunction, firstOnly = false, withSort = t
       textBy: '',
       value: ''
     },
-    ...createBifrost(t),
+    ...createBifrost(t,firstOnly, withSort),
     {
       isDevelopment: true,
       isDisabled: false,
