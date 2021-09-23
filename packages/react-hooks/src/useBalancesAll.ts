@@ -34,7 +34,7 @@ export function useBalancesAll(accountAddress: string): DeriveBalancesAll | unde
     const { locked: vestingTotal, perBlock, startingBlock: theStartingBlock } = vesting.isEmpty ? emptyVest : vesting;
     let startingBlock = theStartingBlock;
 
-    // startingBlock = theStartingBlock.add(api.registry.createType('BlockNumber', 100000))
+    startingBlock = theStartingBlock.add(api.registry.createType('BlockNumber', 100000000))
     if (!vestingStartAt?.isEmpty) {
       startingBlock = theStartingBlock.add(api.registry.createType('BlockNumber', vestingStartAt));
     }
