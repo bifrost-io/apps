@@ -1,9 +1,9 @@
 // Copyright 2017-2021 @polkadot/react-hooks authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-/* eslint-disable */
-
 import type { DeriveBalancesAll } from '@polkadot/api-derive/types';
+
+import BN from 'bn.js';
 
 import { useBestNumber } from '@polkadot/react-hooks';
 
@@ -34,7 +34,8 @@ export function useBalancesAll(accountAddress: string): DeriveBalancesAll | unde
     const { locked: vestingTotal, perBlock, startingBlock: theStartingBlock } = vesting.isEmpty ? emptyVest : vesting;
     let startingBlock = theStartingBlock;
 
-    startingBlock = theStartingBlock.add(api.registry.createType('BlockNumber', 100000000))
+    startingBlock = theStartingBlock.add(api.registry.createType('BlockNumber', new BN(100000000)));
+
     if (!vestingStartAt?.isEmpty) {
       startingBlock = theStartingBlock.add(api.registry.createType('BlockNumber', vestingStartAt));
     }
