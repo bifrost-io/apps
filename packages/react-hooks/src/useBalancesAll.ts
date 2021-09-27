@@ -25,6 +25,7 @@ export function useBalancesAll(accountAddress: string): DeriveBalancesAll | unde
     useCall(api.query.vesting?.vesting, [accountAddress])?.toJSON()
   );
   const vestingStartAt = useCall(api.query.vesting?.vestingStartAt);
+
   const emptyVest = api?.registry?.createType('VestingInfo');
   const result = useCall<DeriveBalancesAll>(api.derive.balances?.all, [accountAddress]);
 
@@ -37,7 +38,7 @@ export function useBalancesAll(accountAddress: string): DeriveBalancesAll | unde
     startingBlock = theStartingBlock.add(api.registry.createType('BlockNumber', new BN(100000000)));
 
     if (!vestingStartAt?.isEmpty) {
-      startingBlock = theStartingBlock.add(api.registry.createType('BlockNumber', vestingStartAt));
+      startingBlock = theStartingBlock.add(api.registry.createType('BlockNumber', vestingStartAt.toString()));
     }
 
     const isStarted = bestNumber?.gt(startingBlock);
