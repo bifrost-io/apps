@@ -13,7 +13,7 @@ import { KUSAMA_GENESIS } from '../api/constants';
 //   info: The chain logo name as defined in ../ui/logos/index.ts in namedLogos (this also needs to align with @polkadot/networks)
 //   text: The text to display on the dropdown
 //   value: The actual hosted secure websocket endpoint
-export function createKusama (t: TFunction): EndpointOption {
+export function createKusama(t: TFunction): EndpointOption {
   return {
     dnslink: 'kusama',
     genesisHash: KUSAMA_GENESIS,
@@ -70,7 +70,7 @@ export function createKusama (t: TFunction): EndpointOption {
         info: 'bifrost',
         homepage: 'https://ksm.vtoken.io/?ref=polkadotjs',
         paraId: 2001,
-        text: t('rpc.kusama.bifrost', 'Bifrost(Kusama)', { ns: 'apps-config' }),
+        text: t('rpc.kusama.bifrost', 'Bifrost (Kusama)', { ns: 'apps-config' }),
         providers: {
           Liebi: 'wss://bifrost-rpc.liebi.com/ws',
           OnFinality: 'wss://bifrost-parachain.api.onfinality.io/public-ws',
