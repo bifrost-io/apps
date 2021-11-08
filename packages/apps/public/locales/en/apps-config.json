@@ -48,7 +48,18 @@
   "rpc.kylin-node.co.uk": "Kylin Network",
   "rpc.manta": "Manta Testnet",
   "rpc.origintrail": "OriginTrail Parachain Testnet",
+  "rpc.polkadot.acala": "Acala",
+  "rpc.polkadot.astar": "Astar",
+  "rpc.polkadot.bifrost": "Bifrost",
+  "rpc.polkadot.clover": "Clover",
+  "rpc.polkadot.clover-para": "Clover",
+  "rpc.polkadot.crust": "Crust",
+  "rpc.polkadot.litentry": "Litentry",
+  "rpc.polkadot.manta": "Manta",
+  "rpc.polkadot.moonbeam": "Moonbeam",
+  "rpc.polkadot.parallel": "Parallel",
   "rpc.polkadot.parity": "Polkadot",
+  "rpc.polkadot.statemint-shell": "Statemint (Shell)",
   "rpc.prod.centrifuge": "Centrifuge",
   "rpc.prod.chainx": "ChainX",
   "rpc.prod.crab": "Darwinia Crab",
@@ -202,5 +213,6 @@
   "rpc.westend.whala": "Whala",
   "ss58.default": "Default for the connected node",
   "testnet.kylin-node.co.uk": "Kylin Testnet",
-  "westend-opal.unique.network": "OPAL by UNIQUE"
+  "westend-opal.unique.network": "OPAL by UNIQUE",
+  "westend.kylin-node.co.uk": "Pichiu Network"
 }
