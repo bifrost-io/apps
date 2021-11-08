@@ -7,6 +7,7 @@ import BN from 'bn.js';
 
 import { useBestNumber } from '@polkadot/react-hooks';
 
+import { createNamedHook } from './createNamedHook';
 import { useApi } from './useApi';
 import { useCall } from './useCall';
 
@@ -16,7 +17,7 @@ import { useCall } from './useCall';
  * @param accountAddress The account address of which balance is to be returned
  * @returns full information about account's balances
  */
-export function useBalancesAll(accountAddress: string): DeriveBalancesAll | undefined {
+function useBalancesAllImpl (accountAddress: string): DeriveBalancesAll | undefined {
   const { api } = useApi();
   const bestNumber = useBestNumber();
 
@@ -66,3 +67,5 @@ export function useBalancesAll(accountAddress: string): DeriveBalancesAll | unde
 
   return result;
 }
+
+export const useBalancesAll = createNamedHook('useBalancesAll', useBalancesAllImpl);
