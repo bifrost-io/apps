@@ -15,6 +15,7 @@ const emptyColor = '#99999';
 // alphabetical
 const chainAcala = '#645AFF';
 const chainAleph = '#00CCAB';
+const chainAltair = '#ffb700';
 const chainApron = 'linear-gradient(45deg, #0099F7 0%, #2E49EB 100%)';
 const chainAstar = '#1b6dc1d9';
 const chainAutomata = '#EC7032';
@@ -44,6 +45,7 @@ const chainHanonycash = '#0099CC';
 const chainHeiko = '#42d5de';
 const chainHydrate = '#000000';
 const chainInterbtc = '#1a0a2d';
+const chainInterlay = '#3E96FF';
 const chainIpse = '#08a1e8';
 const chainKarura = '#ff4c3b';
 const chainKhala = '#03f3f3';
@@ -70,6 +72,7 @@ const chainPrism = 'linear-gradient(45deg, rgba(63,94,251,1) 0%, rgba(252,70,107
 const chainKilt = '#8c145a';
 const chainKonomi = '#007aff';
 const chainKusama = '#000000';
+const chainKusari = '#b8860b';
 const chainKylin = '#ed007e';
 const chainLitentry = 'linear-gradient(45deg, #5cc27c 0%, #6de98f 100%)';
 const chainMybank = '#282736';
@@ -142,6 +145,7 @@ const nodeKonomi = '#007aff';
 const nodeKpron = 'linear-gradient(45deg, #0099F7 0%, #2E49EB 100%)';
 const nodeKylin = '#ed007e';
 const nodeKlug = '#663399';
+const nodeKusari = '#b8860b';
 const nodeLitentry = 'linear-gradient(45deg, #5cc27c 0%, #6de98f 100%)';
 const nodeManta = '#2070a6';
 const nodeMathChain = '#000000';
@@ -199,6 +203,7 @@ export const chainColors: Record<string, string> = Object.entries({
   'acala mandala pc2': chainRoccoMandala,
   'Aleph Zero': chainAleph,
   'Aleph Zero Testnet': chainAleph,
+  Altair: chainAltair,
   'Apron PC1': chainApron,
   'Ares Gladios': chainAresGladios,
   'Ares Odyssey': nodeOdyssey,
@@ -249,6 +254,7 @@ export const chainColors: Record<string, string> = Object.entries({
   Idavoll: chainIdavoll,
   InterBTC: chainInterbtc,
   'InterBTC Staging': chainInterbtc,
+  Interlay: chainInterlay,
   IpseTestnet: chainIpse,
   'Jupiter A1': chainJupiter,
   'Jupiter PC1': chainJupiter,
@@ -268,6 +274,7 @@ export const chainColors: Record<string, string> = Object.entries({
   'Kusama CC1': chainKusama,
   'Kusama CC2': chainKusama,
   'Kusama CC3': chainKusama,
+  kusari: chainKusari,
   'Kylin Testnet': chainKylin,
   'laminar turbulence pc1': chainRococoLaminar,
   Litentry: chainLitentry,
@@ -336,7 +343,7 @@ export const chainColors: Record<string, string> = Object.entries({
   'SubGame Gamma': nodeSubGame,
   'SubGame Staging': nodeSubGame,
   'Subsocial PC1': chainSubsocial,
-  'Subspace Testnet': nodeSubspace,
+  Subspace: nodeSubspace,
   Tick: chainRoccoTick,
   Track: chainRoccoTrack,
   Trick: chainRoccoTrick,
@@ -392,6 +399,7 @@ export const nodeColors = Object.entries({
   'Klug Dossier Node': nodeKlug,
   'Konomi Collator': nodeKonomi,
   'Kpron Collator': nodeKpron,
+  kusari: nodeKusari,
   'Kylin Parachain Collator': nodeKylin,
   'Litentry Collator': nodeLitentry,
   'Manta Collator': nodeManta,
@@ -432,7 +440,7 @@ export const nodeColors = Object.entries({
   'SubGame Gamma': nodeSubGame,
   'SubGame Staging': nodeSubGame,
   'subsocial node': nodeSubsocial,
-  'Subspace Testnet': nodeSubspace,
+  Subspace: nodeSubspace,
   'subzero node': nodeZero,
   'Ternoa Node': nodeTernoa,
   'uni arts node': nodeUniarts,
