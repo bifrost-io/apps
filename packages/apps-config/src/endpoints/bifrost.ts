@@ -23,8 +23,7 @@ export function createBifrost(t: TFunction, firstOnly: boolean, withSort: boolea
       text: t('rpc.kusama.bifrost', 'Bifrost (Kusama)', { ns: 'apps-config' }),
       providers: {
         Liebi: 'wss://bifrost-rpc.liebi.com/ws',
-        OnFinality: 'wss://bifrost-parachain.api.onfinality.io/public-ws',
-        'Patract Elara': 'wss://bifrost.kusama.elara.patract.io'
+        OnFinality: 'wss://bifrost-parachain.api.onfinality.io/public-ws'
       }
     },
 
