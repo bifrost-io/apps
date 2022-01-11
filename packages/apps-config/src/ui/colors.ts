@@ -1,4 +1,4 @@
-// Copyright 2017-2021 @polkadot/apps-config authors & contributors
+// Copyright 2017-2022 @polkadot/apps-config authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 /* eslint sort-keys: ["error", "asc", { caseSensitive: false }] */
@@ -13,6 +13,7 @@ const emptyColor = '#99999';
 
 // based on chain name
 // alphabetical
+const chainSherpax = '#6bbee8';
 const chainAcala = '#645AFF';
 const chainAleph = '#00CCAB';
 const chainAltair = '#ffb700';
@@ -25,7 +26,9 @@ const chainBitCountryPioneer = '#000000';
 const chainBeastEave = '#900048';
 const chainCalamari = '#000000';
 const chainCoinversation = '#e6017a';
+const chainCompetitorsClub = '#213830';
 const chainComposable = '#FF8500';
+const chainComposableFinance = '#861660';
 const chainCrab = '#7C30DD';
 const chainCrownSterling = '#13264b';
 const chainCrust = '#ff8812';
@@ -54,8 +57,8 @@ const chainKlug = '#000000';
 const chainKulupu = '#003366';
 const chainManta = '#2070a6';
 const chainMoonrock = '#3d1d5a';
+const chainNeumann = '#A8278C';
 const chainNFTMart = '#815287';
-const chainOakTestnet = '#E38985';
 const chainPangolin = '#5744ff';
 const chainPangoro = '#5745de';
 const chainParallel = '#ef18ac';
@@ -84,6 +87,7 @@ const chainRoccoMandala = '#173DC9';
 const chainRoccoAres = '#70FF8B';
 const chainAresGladios = '#1295F0';
 const chainRoccoBifrost = '#5a25f0';
+const chainRococoCanvas = '#000000';
 const chainRoccoDarwinia = 'linear-gradient(-45deg, #FE3876 0%, #7C30DD 71%, #3A30DD 100%)';
 const chainRoccoDataHighway = 'linear-gradient(-90deg, #9400D3 0%, #5A5CA9 50%, #00BFFF 100%)';
 const chainRococoEave = '#900048';
@@ -125,9 +129,9 @@ const nodeAutomataContextFree = '#EC7032';
 const nodeBasilisk = '#9eec1b';
 const nodeBitCountry = '#191a2e';
 const nodeBifrost = '#5a25f0';
-const nodeCanvas = '#c77cff';
 const nodeCentrifuge = '#fcc367';
 const nodeCoinversation = '#e6017a';
+const nodeCompetitorsClub = '#213830';
 const nodeCrownSterling = '#13264b';
 const nodeDotMog = '#020609';
 const nodeEdgeware = '#111111';
@@ -154,7 +158,6 @@ const nodeMoonriver = '#0E132E';
 const nodeMybank = '#282736';
 const nodeNFTMart = '#307182';
 const nodeNodle = '#1ab394';
-const nodeOakTestnet = '#E38985';
 const nodeOdyssey = '#1295F0';
 const nodeOpportunity = '#6143bc';
 const nodeOriginTrail = '#131415';
@@ -169,6 +172,7 @@ const nodePontem = '#A92FAC';
 const nodePrism = 'linear-gradient(45deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%)';
 const nodeRealis = '#000000';
 const nodeRiochain = '#1A3BB3';
+const nodeRobonomics = '#2949d3';
 const nodeSora = '#2D2926';
 const nodeStafi = '#00F3AB';
 const nodeSubDAO = 'linear-gradient(50deg, #F20092 0%, #FF4D5D 100%)';
@@ -220,15 +224,17 @@ export const chainColors: Record<string, string> = Object.entries({
   'Calamari Parachain Development': chainCalamari,
   'Calamari Parachain Local': chainCalamari,
   'Calamari Parachain Testnet': chainCalamari,
+  Canvas: chainRococoCanvas,
   ChainX: chainChainx,
   Clover: chainClover,
   Coinversation: chainCoinversation,
+  'Competitors Club': chainCompetitorsClub,
   Composable: chainComposable,
+  'Composable Finance': chainComposableFinance,
   'Crown Sterling': chainCrownSterling,
   crust: chainCrust,
   'crust maxwell': chainCrustMaxwell,
   'Crust PC1': chainCrust,
-  Darwinia: chainDarwinia,
   'darwinia cc1': chainDarwinia,
   'Darwinia Crab': chainCrab,
   'Darwinia Crab Redirect': chainCrab,
@@ -247,6 +253,7 @@ export const chainColors: Record<string, string> = Object.entries({
   'Genshiro Rococo Testnet': chainGenshiro,
   'Halongbay PC1': chainPolkaFoundry,
   hanonycash: chainHanonycash,
+  HydraDX: chainSnakenet,
   'HydraDX Hydrate': chainHydrate,
   'HydraDX Snakenet': chainSnakenet,
   'HydraDX Snakenet Gen2': chainSnakenet,
@@ -293,9 +300,9 @@ export const chainColors: Record<string, string> = Object.entries({
   Moonrock: chainMoonrock,
   Moonshadow: nodeMoonbeam,
   'mybank.network Testnet': chainMybank,
+  'Neumann Network': chainNeumann,
   'NFTMart Staging': chainNFTMart,
   'NFTMart Testnet': chainNFTMart,
-  'OAK Testnet': chainOakTestnet,
   'Opal Node': chainOpal,
   'OriginTrail Parachain': nodeOriginTrail,
   'OriginTrail Parachain Testnet': nodeOriginTrail,
@@ -323,10 +330,12 @@ export const chainColors: Record<string, string> = Object.entries({
   'ReAlis Network': nodeRealis,
   'RioChain CC-1': chainRiochain,
   'Riochain Staging': chainRiochain,
+  Robonomics: nodeRobonomics,
   Rococo: chainRocco,
   Sakura: chainSakura,
   Shadow: chainShadow,
-  sherpax: chainChainx,
+  Sherpax: chainSherpax,
+  'Sherpax Testnet': chainSherpax,
   Shiden: chainShiden,
   Spanner: chainSpanner,
   Standard: chainStandard,
@@ -378,10 +387,10 @@ export const nodeColors = Object.entries({
   Basilisk: nodeBasilisk,
   'Bifrost Node': nodeBifrost,
   'Bit.Country Node': nodeBitCountry,
-  'Canvas Node': nodeCanvas,
   'centrifuge chain': nodeCentrifuge,
   'Centrifuge Chain Node': nodeCentrifuge,
   Coinversation: nodeCoinversation,
+  'Competitors Club': nodeCompetitorsClub,
   'Crown Sterling': nodeCrownSterling,
   'DOTMog Node': nodeDotMog,
   'edgeware node': nodeEdgeware,
@@ -409,7 +418,6 @@ export const nodeColors = Object.entries({
   'NFTMart Staging': nodeNFTMart,
   'NFTMart Testnet': nodeNFTMart,
   'nodle chain node': nodeNodle,
-  'OAK Testnet': nodeOakTestnet,
   'Opal Node': nodeOpal,
   'Opportunity Standalone Testnet': nodeOpportunity,
   'OriginTrail Parachain': nodeOriginTrail,
