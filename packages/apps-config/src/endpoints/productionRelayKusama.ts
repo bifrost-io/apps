@@ -172,13 +172,24 @@ export function createKusama(t: TFunction): EndpointOption {
         }
       },
       {
+        info: 'kico',
+        homepage: 'https://dico.io/',
+        paraId: 2107,
+        text: t('rpc.kusama.kico', 'KICO', { ns: 'apps-config' }),
+        providers: {
+          'DICO FOUNDATION': 'wss://rpc.kico.dico.io',
+          OnFinality: 'wss://rpc.api.kico.dico.io'
+        }
+      },
+      {
         info: 'kilt',
         homepage: 'https://www.kilt.io/',
         paraId: 2086,
         text: t('rpc.kusama.kilt', 'KILT Spiritnet', { ns: 'apps-config' }),
         providers: {
           'KILT Protocol': 'wss://spiritnet.kilt.io/',
-          OnFinality: 'wss://spiritnet.api.onfinality.io/public-ws'
+          OnFinality: 'wss://spiritnet.api.onfinality.io/public-ws',
+          Dwellir: 'wss://kilt-rpc.dwellir.com'
         }
       },
       {
@@ -199,6 +210,16 @@ export function createKusama(t: TFunction): EndpointOption {
         text: t('rpc.kusama.kpron', 'Kpron', { ns: 'apps-config' }),
         providers: {
           Kpron: 'wss://kusama-kpron-rpc.apron.network/'
+        }
+      },
+      {
+        info: 'litmus',
+        homepage: 'https://kusama-crowdloan.litentry.com',
+        paraId: 2106,
+        isUnreachable: false,
+        text: t('rpc.kusama.litmus', 'Litmus', { ns: 'apps-config' }),
+        providers: {
+          Litentry: 'wss://rpc.litmus-parachain.litentry.io'
         }
       },
       {
@@ -226,7 +247,7 @@ export function createKusama(t: TFunction): EndpointOption {
         paraId: 2023,
         text: t('rpc.kusama.moonriver', 'Moonriver', { ns: 'apps-config' }),
         providers: {
-          PureStake: 'wss://wss.moonriver.moonbeam.network',
+          'Moonbeam Foundation': 'wss://wss.moonriver.moonbeam.network',
           OnFinality: 'wss://moonriver.api.onfinality.io/public-ws',
           Pinknode: 'wss://rpc.pinknode.io/moonriver/explorer'
         }
@@ -276,6 +297,7 @@ export function createKusama(t: TFunction): EndpointOption {
         text: t('quartz.unique.network', 'QUARTZ by UNIQUE', { ns: 'apps-config' }),
         providers: {
           Unique: 'wss://quartz.unique.network',
+          OnFinality: 'wss://quartz.api.onfinality.io/public-ws',
           'Unique Europe': 'wss://eu-ws-quartz.unique.network',
           'Unique US': 'wss://us-ws-quartz.unique.network'
         }
@@ -319,6 +341,15 @@ export function createKusama(t: TFunction): EndpointOption {
         }
       },
       {
+        info: 'sora_ksm',
+        homepage: 'https://sora.org/',
+        paraId: 2011,
+        text: t('rpc.kusama.sora_ksm', 'SORA Kusama Parachain', { ns: 'apps-config' }),
+        providers: {
+          Soramitsu: 'wss://ws.parachain-collator-1.c1.sora2.soramitsu.co.jp'
+        }
+      },
+      {
         info: 'subgame',
         homepage: 'http://subgame.org/',
         paraId: 2018,
@@ -329,7 +360,6 @@ export function createKusama(t: TFunction): EndpointOption {
       },
       {
         info: 'subsocial',
-        isUnreachable: true, // https://github.com/polkadot-js/apps/issues/6550
         homepage: 'https://subsocial.network/',
         paraId: 2100,
         text: t('rpc.kusama.subsocial', 'Subsocial', { ns: 'apps-config' }),
@@ -348,7 +378,6 @@ export function createKusama(t: TFunction): EndpointOption {
       },
       {
         info: 'zeitgeist',
-        isUnreachable: true, // https://github.com/polkadot-js/apps/issues/6635
         homepage: 'https://zeitgeist.pm',
         paraId: 2101,
         text: t('rpc.kusama.zeitgeist', 'Zeitgeist', { ns: 'apps-config' }),
