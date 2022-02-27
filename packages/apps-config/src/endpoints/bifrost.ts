@@ -14,7 +14,7 @@ import { expandEndpoints } from './util';
 //   text: The text to display on the dropdown
 //   value: The actual hosted secure websocket endpoint
 
-export function createBifrost (t: TFunction, firstOnly: boolean, withSort: boolean): LinkOption[] {
+export function createBifrost(t: TFunction, firstOnly: boolean, withSort: boolean): LinkOption[] {
   return expandEndpoints(t, [
     {
       info: 'bifrost',
@@ -31,9 +31,9 @@ export function createBifrost (t: TFunction, firstOnly: boolean, withSort: boole
 
     {
       info: 'bifrost',
-      text: t('rpc.test.bifrost', 'Bifrost Asgard', { ns: 'apps-config' }),
+      text: t('rpc.test.bifrost', 'Bifrost Stage Network', { ns: 'apps-config' }),
       providers: {
-        Liebi: 'wss://asgard-rpc.liebi.com/ws'
+        Liebi: 'wss://bifrost-rpc.testnet.liebi.com/ws'
       }
     }
   ], firstOnly, withSort);

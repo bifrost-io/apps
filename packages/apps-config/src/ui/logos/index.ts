@@ -191,7 +191,7 @@ export const chainLogos = Object.entries({
   'Automata ContextFree': nodeAutomata,
   'Beast Developer': nodeBeast,
   Bifrost: nodeBifrost,
-  'Bifrost Asgard CC4': nodeBifrost,
+  'Bifrost Stage Testnet': nodeBifrost,
   'Calamari Parachain': nodeCalamari,
   'Calamari Parachain Development': nodeCalamari,
   'Calamari Parachain Local': nodeCalamari,

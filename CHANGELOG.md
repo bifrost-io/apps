@@ -1535,7 +1535,7 @@ Contributed:
 - Update types of Cantillon testnet (Thanks to https://github.com/brenzi)
 - Update types of Gesell testnet (Thanks to https://github.com/brenzi)
 - Add Darwinia network (Thanks to https://github.com/WoeOm)
-- Add Bifrost Asgard testnet (Thanks to https://github.com/janpo)
+- Add Bifrost Stage Network testnet (Thanks to https://github.com/janpo)
 
 Changes:
 
