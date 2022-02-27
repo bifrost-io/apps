@@ -27,7 +27,7 @@ export function createKusama(t: TFunction): EndpointOption {
       'light client': 'light://substrate-connect/kusama'
       // Pinknode: 'wss://rpc.pinknode.io/kusama/explorer' // https://github.com/polkadot-js/apps/issues/5721
     },
-    teleport: [1000],
+    teleport: [1000, 1001],
     linked: [
       // (1) all system parachains (none available yet)
       // ...
@@ -39,6 +39,16 @@ export function createKusama(t: TFunction): EndpointOption {
         providers: {
           Parity: 'wss://statemine-rpc.polkadot.io',
           OnFinality: 'wss://statemine.api.onfinality.io/public-ws'
+        },
+        teleport: [-1]
+      },
+      {
+        info: 'encointer',
+        homepage: 'https://encointer.org/',
+        paraId: 1001,
+        text: t('rpc.kusama.encointer', 'Encointer Network', { ns: 'apps-config' }),
+        providers: {
+          'Encointer Association': 'wss://api.kusama.encointer.org'
         },
         teleport: [-1]
       },
@@ -93,10 +103,7 @@ export function createKusama(t: TFunction): EndpointOption {
         paraId: 2084,
         text: t('rpc.calamari.systems', 'Calamari', { ns: 'apps-config' }),
         providers: {
-          'Calamari Falafel': 'wss://falafel.calamari.systems/',
-          'Calamari Fritti': 'wss://fritti.calamari.systems/',
-          'Calamari Pasta': 'wss://pasta.calamari.systems/',
-          'Calamari Smoothie': 'wss://smoothie.calamari.systems/',
+          'Manta Network': 'wss://ws.calamari.systems/',
           OnFinality: 'wss://calamari.api.onfinality.io/public-ws'
         }
       },
@@ -112,20 +119,10 @@ export function createKusama(t: TFunction): EndpointOption {
       {
         info: 'crab',
         homepage: 'https://crab.network',
-        isUnreachable: true, // https://github.com/polkadot-js/apps/issues/6794
         paraId: 2105,
-        text: t('rpc.kusama.crab', 'Darwinia Crab', { ns: 'apps-config' }),
+        text: t('rpc.kusama.crab', 'Darwinia Crab Parachain', { ns: 'apps-config' }),
         providers: {
           Crab: 'wss://crab-parachain-rpc.darwinia.network/'
-        }
-      },
-      {
-        info: 'encointer',
-        homepage: 'https://encointer.org/',
-        paraId: 1001,
-        text: t('rpc.kusama.encointer', 'Encointer Network', { ns: 'apps-config' }),
-        providers: {
-          'Encointer Association': 'wss://api.kusama.encointer.org'
         }
       },
       {
@@ -233,6 +230,16 @@ export function createKusama(t: TFunction): EndpointOption {
         }
       },
       {
+        info: 'mangata',
+        isUnreachable: true, // https://github.com/polkadot-js/apps/issues/5888
+        homepage: 'https://mangata.finance',
+        paraId: 2110,
+        text: t('rpc.mangata', 'Mangata', { ns: 'apps-config' }),
+        providers: {
+          Mangata: 'wss://v4-prod-collator-01.mangatafinance.cloud'
+        }
+      },
+      {
         info: 'mars',
         homepage: 'https://www.aresprotocol.io/mars',
         paraId: 2008,
@@ -247,9 +254,10 @@ export function createKusama(t: TFunction): EndpointOption {
         paraId: 2023,
         text: t('rpc.kusama.moonriver', 'Moonriver', { ns: 'apps-config' }),
         providers: {
-          'Moonbeam Foundation': 'wss://wss.moonriver.moonbeam.network',
+          'Moonbeam Foundation': 'wss://wss.api.moonriver.moonbeam.network',
           OnFinality: 'wss://moonriver.api.onfinality.io/public-ws',
-          Pinknode: 'wss://rpc.pinknode.io/moonriver/explorer'
+          Dwellir: 'wss://moonriver-rpc.dwellir.com'
+          // Pinknode: 'wss://rpc.pinknode.io/moonriver/explorer' // https://github.com/polkadot-js/apps/issues/7058
         }
       },
       {
