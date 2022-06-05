@@ -4,10 +4,19 @@
 import type { Hash } from '@polkadot/types/interfaces';
 
 export interface Detail {
-  blockNumber: number;
-  countEvents: number;
-  countExtrinsics: number;
+  block: {
+    bytes: number;
+    number: number;
+  };
   delay: number;
+  events: {
+    count: number;
+    system: number;
+  };
+  extrinsics: {
+    bytes: number;
+    count: number;
+  };
   now: number;
   parentHash: Hash;
 }
@@ -18,4 +27,9 @@ export interface Result {
   timeAvg: number;
   timeMax: number;
   timeMin: number;
+}
+
+export interface ChartContents {
+  labels: string[];
+  values: number[][];
 }
