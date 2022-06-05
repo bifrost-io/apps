@@ -4,8 +4,8 @@
 import type { TFunction } from '../types';
 import type { LinkOption } from './types';
 
-import { createBifrost } from './bifrost';
 import { defaultT } from '../util';
+import { createBifrost } from './bifrost';
 import { createCustom, createDev, createOwn } from './development';
 import { prodChains, prodRelayKusama, prodRelayPolkadot } from './production';
 import { testChains, testRelayRococo, testRelayWestend } from './testing';
@@ -15,7 +15,7 @@ export { CUSTOM_ENDPOINT_KEY } from './development';
 export * from './production';
 export * from './testing';
 
-export function createWsEndpoints (t: TFunction = defaultT, firstOnly = false, withSort = true): LinkOption[] {
+export function createWsEndpoints(t: TFunction = defaultT, firstOnly = false, withSort = true): LinkOption[] {
   return [
     {
       isDisabled: false,
@@ -24,7 +24,7 @@ export function createWsEndpoints (t: TFunction = defaultT, firstOnly = false, w
       textBy: '',
       value: ''
     },
-    ...createBifrost(t,firstOnly, withSort),
+    ...createBifrost(t, firstOnly, withSort),
     {
       isDevelopment: true,
       isDisabled: false,

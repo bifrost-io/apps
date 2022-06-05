@@ -28,6 +28,15 @@ export function createBifrost(t: TFunction, firstOnly: boolean, withSort: boolea
         OnFinality: 'wss://bifrost-parachain.api.onfinality.io/public-ws'
       }
     },
+    {
+      info: 'bifrost',
+      homepage: 'https://bifrost.app',
+      paraId: 2030,
+      text: t('rpc.kusama.bifrost', 'Bifrost (Polkadot)', { ns: 'apps-config' }),
+      providers: {
+        Liebi: 'wss://hk.p.bifrost-rpc.liebi.com/ws'
+      }
+    },
 
     {
       info: 'bifrost',
