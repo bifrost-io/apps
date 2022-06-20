@@ -20,7 +20,7 @@ export function createBifrost(t: TFunction, firstOnly: boolean, withSort: boolea
       info: 'bifrost',
       homepage: 'https://bifrost.app',
       paraId: 2030,
-      text: t('rpc.kusama.bifrost', 'Bifrost', { ns: 'apps-config' }),
+      text: t('rpc.kusama.bifrost', 'Bifrost (Polkadot)', { ns: 'apps-config' }),
       providers: {
         Liebi: 'wss://hk.p.bifrost-rpc.liebi.com/ws'
       }
