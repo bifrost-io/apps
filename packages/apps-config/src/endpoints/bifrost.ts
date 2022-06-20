@@ -18,7 +18,17 @@ export function createBifrost(t: TFunction, firstOnly: boolean, withSort: boolea
   return expandEndpoints(t, [
     {
       info: 'bifrost',
-      homepage: 'https://ksm.vtoken.io/?ref=polkadotjs',
+      homepage: 'https://bifrost.app',
+      paraId: 2030,
+      text: t('rpc.kusama.bifrost', 'Bifrost', { ns: 'apps-config' }),
+      providers: {
+        Liebi: 'wss://hk.p.bifrost-rpc.liebi.com/ws'
+      }
+    },
+
+    {
+      info: 'bifrost',
+      homepage: 'https://bifrost.app',
       paraId: 2001,
       text: t('rpc.kusama.bifrost', 'Bifrost (Kusama)', { ns: 'apps-config' }),
       providers: {
@@ -26,15 +36,6 @@ export function createBifrost(t: TFunction, firstOnly: boolean, withSort: boolea
         'Liebi 1': 'wss://us.bifrost-rpc.liebi.com/ws',
         'Liebi 2': 'wss://eu.bifrost-rpc.liebi.com/ws',
         OnFinality: 'wss://bifrost-parachain.api.onfinality.io/public-ws'
-      }
-    },
-    {
-      info: 'bifrost',
-      homepage: 'https://bifrost.app',
-      paraId: 2030,
-      text: t('rpc.kusama.bifrost', 'Bifrost (Polkadot)', { ns: 'apps-config' }),
-      providers: {
-        Liebi: 'wss://hk.p.bifrost-rpc.liebi.com/ws'
       }
     },
 
