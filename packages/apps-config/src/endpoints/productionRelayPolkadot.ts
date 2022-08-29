@@ -31,6 +31,15 @@ export const prodParasPolkadot: EndpointOption[] = [
     }
   },
   {
+    info: 'ajuna',
+    homepage: 'https://ajuna.io',
+    paraId: 2051,
+    text: 'Ajuna Network',
+    providers: {
+      // AjunaNetwork: 'wss://rpc-parachain.ajuna.network' // https://github.com/polkadot-js/apps/issues/8039
+    }
+  },
+  {
     info: 'odyssey',
     homepage: 'https://www.aresprotocol.io/',
     paraId: 2028,
@@ -46,8 +55,9 @@ export const prodParasPolkadot: EndpointOption[] = [
     text: 'Astar',
     providers: {
       Astar: 'wss://rpc.astar.network',
-      OnFinality: 'wss://astar.api.onfinality.io/public-ws',
+      Blast: 'wss://astar.public.blastapi.io',
       Dwellir: 'wss://astar-rpc.dwellir.com',
+      OnFinality: 'wss://astar.api.onfinality.io/public-ws',
       Pinknode: 'wss://public-rpc.pinknode.io/astar'
     }
   },
@@ -67,8 +77,7 @@ export const prodParasPolkadot: EndpointOption[] = [
     text: 'Centrifuge',
     providers: {
       Centrifuge: 'wss://fullnode.parachain.centrifuge.io',
-      OnFinality: 'wss://centrifuge-parachain.api.onfinality.io/public-ws',
-      Dwellir: 'wss://centrifuge-rpc.dwellir.com'
+      OnFinality: 'wss://centrifuge-parachain.api.onfinality.io/public-ws'
     }
   },
   {
@@ -82,15 +91,15 @@ export const prodParasPolkadot: EndpointOption[] = [
     }
   },
   {
+    info: 'coinversation',
     // this is also a duplicate as a Live and Testing network -
     // it is either/or, not and
-    info: 'coinversation',
-    isUnreachable: true, // https://github.com/polkadot-js/apps/issues/6635
+    isUnreachable: true,
     homepage: 'http://www.coinversation.io/',
     paraId: 2027,
     text: 'Coinversation',
     providers: {
-      Coinversation: 'wss://rpc.coinversation.io/'
+      // Coinversation: 'wss://rpc.coinversation.io/' // https://github.com/polkadot-js/apps/issues/6635
     }
   },
   {
@@ -115,12 +124,20 @@ export const prodParasPolkadot: EndpointOption[] = [
   },
   {
     info: 'darwinia',
-    isUnreachable: true, // https://github.com/polkadot-js/apps/issues/6530
     homepage: 'https://darwinia.network/',
-    paraId: 2003,
+    paraId: 2046,
     text: 'Darwinia',
     providers: {
-      Darwinia: 'wss://parachain-rpc.darwinia.network'
+      'Darwinia Network': 'wss://parachain-rpc.darwinia.network'
+    }
+  },
+  {
+    info: 'darwinia',
+    homepage: 'https://darwinia.network/',
+    paraId: 2003,
+    text: 'Darwinia Backup',
+    providers: {
+      // 'Darwinia Network': 'wss://parachain-rpc.darwinia.network' // https://github.com/polkadot-js/apps/issues/6530
     }
   },
   {
@@ -129,7 +146,9 @@ export const prodParasPolkadot: EndpointOption[] = [
     paraId: 2021,
     text: 'Efinity',
     providers: {
-      Efinity: 'wss://rpc.efinity.io'
+      Efinity: 'wss://rpc.efinity.io',
+      Dwellir: 'wss://efinity-rpc.dwellir.com',
+      OnFinality: 'wss://efinity.api.onfinality.io/public-ws'
     }
   },
   {
@@ -162,6 +181,15 @@ export const prodParasPolkadot: EndpointOption[] = [
     }
   },
   {
+    info: 'integritee',
+    homepage: 'https://integritee.network',
+    paraId: 2039,
+    text: 'Integritee Shell',
+    providers: {
+      Integritee: 'wss://polkadot.api.integritee.network'
+    }
+  },
+  {
     info: 'interlay',
     homepage: 'https://interlay.io/',
     paraId: 2032,
@@ -181,12 +209,22 @@ export const prodParasPolkadot: EndpointOption[] = [
     }
   },
   {
+    info: 'kylin',
+    homepage: 'https://kylin.network/',
+    paraId: 2052,
+    text: 'Kylin',
+    providers: {
+      'Kylin Network': 'wss://polkadot.kylin-node.co.uk'
+    }
+  },
+  {
     info: 'litentry',
     homepage: 'https://crowdloan.litentry.com',
     paraId: 2013,
     text: 'Litentry',
     providers: {
-      Litentry: 'wss://rpc.litentry-parachain.litentry.io'
+      Litentry: 'wss://rpc.litentry-parachain.litentry.io',
+      Dwellir: 'wss://litentry-rpc.dwellir.com'
     }
   },
   {
@@ -226,9 +264,19 @@ export const prodParasPolkadot: EndpointOption[] = [
     }
   },
   {
+    info: 'omnibtc',
+    isUnreachable: true,
+    homepage: 'https://www.omnibtc.finance',
+    text: 'OmniBTC',
+    paraId: 2053,
+    providers: {
+      OmniBTC: 'wss://omnibtc.io/ws'
+    }
+  },
+  {
     info: 'origintrail-parachain',
     homepage: 'https://parachain.origintrail.io',
-    text: 'OriginTrail Parachain',
+    text: 'OriginTrail',
     paraId: 2043,
     providers: {
       TraceLabs: 'wss://parachain-rpc.origin-trail.network'
@@ -277,11 +325,10 @@ export const prodParasPolkadot: EndpointOption[] = [
   {
     info: 'subgame',
     homepage: 'http://subgame.org/',
-    isUnreachable: true, // https://github.com/polkadot-js/apps/pull/6761
     paraId: 2017,
     text: 'SubGame Gamma',
     providers: {
-      SubGame: 'wss://gamma.subgame.org/'
+      // SubGame: 'wss://gamma.subgame.org/' // https://github.com/polkadot-js/apps/pull/6761
     }
   },
   {
@@ -306,7 +353,8 @@ export const prodParasPolkadotCommon: EndpointOption[] = [
     providers: {
       Parity: 'wss://statemint-rpc.polkadot.io',
       OnFinality: 'wss://statemint.api.onfinality.io/public-ws',
-      Dwellir: 'wss://statemint-rpc.dwellir.com'
+      Dwellir: 'wss://statemint-rpc.dwellir.com',
+      Pinknode: 'wss://public-rpc.pinknode.io/statemint'
     }
   }
 ];
@@ -320,8 +368,9 @@ export const prodRelayPolkadot: EndpointOption = {
     Parity: 'wss://rpc.polkadot.io',
     OnFinality: 'wss://polkadot.api.onfinality.io/public-ws',
     Dwellir: 'wss://polkadot-rpc.dwellir.com',
+    Pinknode: 'wss://public-rpc.pinknode.io/polkadot',
+    RadiumBlock: 'wss://polkadot.public.curie.radiumblock.io/ws',
     // 'Geometry Labs': 'wss://polkadot.geometry.io/websockets', // https://github.com/polkadot-js/apps/pull/6746
-    // Pinknode: 'wss://rpc.pinknode.io/polkadot/explorer' // https://github.com/polkadot-js/apps/issues/5721
     'light client': 'light://substrate-connect/polkadot'
   },
   teleport: [1000],

@@ -16,12 +16,27 @@ import { ROCOCO_GENESIS } from '../api/constants';
 // IMPORTANT: Alphabetical based on text
 export const testParasRococo: EndpointOption[] = [
   {
+    info: 'rococoAmplitude',
+    paraId: 2124,
+    text: 'Amplitude',
+    providers: {
+      PendulumChain: 'wss://pencol-roc-00.pendulumchain.tech'
+    }
+  },
+  {
+    info: 'arctic',
+    paraId: 3015,
+    text: 'Arctic',
+    providers: {
+      Arctic: 'wss://arctic-rococo-rpc.icenetwork.io'
+    }
+  },
+  {
     info: 'rococoBajun',
-    isUnreachable: true, // https://github.com/polkadot-js/apps/issues/7593
     paraId: 3026,
     text: 'Bajun Network',
     providers: {
-      AjunaNetwork: 'wss://rpc-rococo.bajun.network'
+      // AjunaNetwork: 'wss://rpc-rococo.bajun.network' // https://github.com/polkadot-js/apps/issues/7593
     }
   },
   {
@@ -30,6 +45,14 @@ export const testParasRococo: EndpointOption[] = [
     text: 'Basilisk',
     providers: {
       'Galactic Council': 'wss://rpc-01.basilisk-rococo.hydradx.io'
+    }
+  },
+  {
+    info: 'rococoBifrost',
+    paraId: 2001,
+    text: 'Bifrost',
+    providers: {
+      Liebi: 'wss://bifrost-rpc.rococo.liebi.com/ws'
     }
   },
   {
@@ -49,6 +72,22 @@ export const testParasRococo: EndpointOption[] = [
     }
   },
   {
+    info: 'rococoConfti',
+    paraId: 4094,
+    text: 'Confti',
+    providers: {
+      // Confti: 'wss://ws.confti.club' // https://github.com/polkadot-js/apps/issues/8036
+    }
+  },
+  {
+    info: 'rococoCrust',
+    paraId: 2012,
+    text: 'Crust Testnet',
+    providers: {
+      Crust: 'wss://rococo-csm.crustcode.com/'
+    }
+  },
+  {
     info: 'rococoDali',
     paraId: 2087,
     text: 'Dali',
@@ -65,28 +104,19 @@ export const testParasRococo: EndpointOption[] = [
     }
   },
   {
-    info: 'rocfinity',
-    paraId: 2021,
-    text: 'Efinity',
+    info: 'Eggnet',
+    paraId: 4006,
+    text: 'Eggnet',
     providers: {
-      Efinity: 'wss://rpc.rococo.efinity.io'
+      Webb: 'wss://rococo1.webb.tools'
     }
   },
   {
     info: 'rococoGenshiro',
     paraId: 2024,
-    text: 'Genshiro Rococo Testnet',
+    text: 'Genshiro Testnet',
     providers: {
       Equilibrium: 'wss://parachain-testnet.equilab.io/rococo/collator/node1/wss'
-    }
-  },
-  {
-    info: 'rococoGM',
-    isUnreachable: true,
-    paraId: 3019,
-    text: 'GM Parachain',
-    providers: {
-      // 'GM or Die DAO': 'wss://rococo.gmordie.com' // https://github.com/polkadot-js/apps/issues/7716
     }
   },
   {
@@ -99,7 +129,7 @@ export const testParasRococo: EndpointOption[] = [
   },
   {
     info: 'rococoImbue',
-    paraId: 3017,
+    paraId: 2121,
     text: 'Imbue Network',
     providers: {
       'Imbue Network': 'wss://rococo.imbue.network'
@@ -130,12 +160,19 @@ export const testParasRococo: EndpointOption[] = [
     }
   },
   {
+    info: 'rococoMd5',
+    paraId: 4088,
+    text: 'MD5 Network',
+    providers: {
+      'Hashed Systems': 'wss://c1.md5.network'
+    }
+  },
+  {
     info: 'rococoMoonsama',
-    isDisabled: true, // https://github.com/polkadot-js/apps/issues/7526
     paraId: 2055,
     text: 'Moonsama',
     providers: {
-      Moonsama: 'wss://moonsama-testnet-rpc.moonsama.com'
+      // Moonsama: 'wss://moonsama-testnet-rpc.moonsama.com' // https://github.com/polkadot-js/apps/issues/7526
     }
   },
   {
@@ -143,14 +180,21 @@ export const testParasRococo: EndpointOption[] = [
     paraId: 2026,
     text: 'Nodle',
     providers: {
-      OnFinality: 'wss://node-6913072722034561024.lh.onfinality.io/ws?apikey=84d77e2e-3793-4785-8908-5096cffea77a'
+      OnFinality: 'wss://nodle-paradis.api.onfinality.io/public-ws'
     }
+  },
+  {
+    info: 'chainoli',
+    homepage: 'https://www.my-oli.com/en/',
+    paraId: 4023,
+    text: 'OLI',
+    providers: {}
   },
   {
     info: 'rococoOriginTrailParachain',
     homepage: 'https://parachain.origintrail.io',
     paraId: 2043,
-    text: 'OriginTrail Parachain Testnet',
+    text: 'OriginTrail Testnet',
     providers: {
       TraceLabs: 'wss://parachain-testnet-rpc.origin-trail.network/'
     }
@@ -158,7 +202,7 @@ export const testParasRococo: EndpointOption[] = [
   {
     info: 'rococoPangolin',
     paraId: 2105,
-    text: 'Pangolin Parachain',
+    text: 'Pangolin',
     providers: {
       'Darwinia Network': 'wss://pangolin-parachain-rpc.darwinia.network'
     }
@@ -181,6 +225,14 @@ export const testParasRococo: EndpointOption[] = [
     }
   },
   {
+    info: 'rocfinity',
+    paraId: 2021,
+    text: 'Rocfinity',
+    providers: {
+      Efinity: 'wss://rpc.rococo.efinity.io'
+    }
+  },
+  {
     info: 'snowbridge',
     paraId: 3016,
     text: 'Snowbridge',
@@ -197,11 +249,27 @@ export const testParasRococo: EndpointOption[] = [
     }
   },
   {
+    info: 'rococoSora',
+    paraId: 2011,
+    text: 'SORA',
+    providers: {
+      Soramitsu: 'wss://ws.parachain-collator-1.c1.stg1.sora2.soramitsu.co.jp'
+    }
+  },
+  {
     info: 'rococoSpreehafen',
     paraId: 2116,
     text: 'Spreehafen',
     providers: {
       DataHighway: 'wss://spreehafen.datahighway.com'
+    }
+  },
+  {
+    info: 'rococoSubzero',
+    paraId: 4040,
+    text: 'Subzero',
+    providers: {
+      ZERO: 'wss://staging.para.sub.zero.io'
     }
   },
   {
@@ -225,16 +293,15 @@ export const testParasRococo: EndpointOption[] = [
     paraId: 3003,
     text: 'Virto',
     providers: {
-      VirtoNetwork: 'wss://rococo.virtonetwork.xyz'
+      // VirtoNetwork: 'wss://rococo.virtonetwork.xyz' // https://github.com/polkadot-js/apps/issues/8024
     }
   },
   {
     info: 'rococoZeitgeist',
-    isDisabled: true, // See https://github.com/polkadot-js/apps/issues/5842
     paraId: 2050,
     text: 'Zeitgeist PC',
     providers: {
-      Zeitggeist: 'wss://roc.zeitgeist.pm'
+      // Zeitggeist: 'wss://roc.zeitgeist.pm' // See https://github.com/polkadot-js/apps/issues/5842
     }
   }
 ];
