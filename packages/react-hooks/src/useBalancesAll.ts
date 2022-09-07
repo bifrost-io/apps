@@ -17,7 +17,7 @@ import { useCall } from './useCall';
  * @param accountAddress The account address of which balance is to be returned
  * @returns full information about account's balances
  */
-function useBalancesAllImpl (accountAddress: string): DeriveBalancesAll | undefined {
+function useBalancesAllImpl(accountAddress: string): DeriveBalancesAll | undefined {
   const { api } = useApi();
   const bestNumber = useBestNumber();
 
@@ -31,14 +31,16 @@ function useBalancesAllImpl (accountAddress: string): DeriveBalancesAll | undefi
   const result = useCall<DeriveBalancesAll>(api.derive.balances?.all, [accountAddress]);
 
   if (result) {
-    if (result.vestingLocked.isEmpty) return result;
+    if (result.vestingLocked.isEmpty) {
+      return result;
+    }
 
     const { locked: vestingTotal, perBlock, startingBlock: theStartingBlock } = vesting.isEmpty ? emptyVest : vesting;
     let startingBlock = theStartingBlock;
 
     startingBlock = theStartingBlock.add(api.registry.createType('BlockNumber', new BN(100000000)));
 
-    if (!vestingStartAt?.isEmpty) {
+    if (vestingStartAt && !vestingStartAt?.isEmpty) {
       startingBlock = theStartingBlock.add(api.registry.createType('BlockNumber', vestingStartAt.toString()));
     }
 
