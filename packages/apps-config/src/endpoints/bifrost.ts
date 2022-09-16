@@ -35,13 +35,13 @@ export const prodParasBifrost: EndpointOption[] = [
       OnFinality: 'wss://bifrost-parachain.api.onfinality.io/public-ws',
       Dwellir: 'wss://bifrost-rpc.dwellir.com'
     }
-  },
-
-  {
-    info: 'bifrost',
-    text: 'Bifrost Stage Network',
-    providers: {
-      Liebi: 'wss://bifrost-rpc.testnet.liebi.com/ws'
-    }
   }
+
+  // {
+  //   info: 'bifrost',
+  //   text: 'Bifrost Stage Network',
+  //   providers: {
+  //     Liebi: 'wss://bifrost-rpc.testnet.liebi.com/ws'
+  //   }
+  // }
 ];
