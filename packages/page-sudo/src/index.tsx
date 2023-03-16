@@ -1,4 +1,4 @@
-// Copyright 2017-2022 @polkadot/app-js authors & contributors
+// Copyright 2017-2023 @polkadot/app-js authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import type { AppProps as Props } from '@polkadot/react-components/types';
@@ -9,9 +9,9 @@ import { Route, Switch } from 'react-router';
 import { Icon, Tabs } from '@polkadot/react-components';
 import { useSudo } from '@polkadot/react-hooks';
 
-import SetKey from './SetKey';
-import Sudo from './Sudo';
-import { useTranslation } from './translate';
+import SetKey from './SetKey.js';
+import Sudo from './Sudo.js';
+import { useTranslation } from './translate.js';
 
 function SudoApp ({ basePath }: Props): React.ReactElement<Props> {
   const { t } = useTranslation();
@@ -47,7 +47,6 @@ function SudoApp ({ basePath }: Props): React.ReactElement<Props> {
             </Route>
             <Route>
               <Sudo
-                allAccounts={allAccounts}
                 isMine={hasSudoKey}
                 sudoKey={sudoKey}
               />

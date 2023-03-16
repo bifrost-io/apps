@@ -1,11 +1,12 @@
-// Copyright 2017-2022 @polkadot/apps-config authors & contributors
+// Copyright 2017-2023 @polkadot/apps-config authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { EndpointOption } from './types';
+import type { EndpointOption } from './types.js';
 
-import { POLKADOT_GENESIS } from '../api/constants';
+import { nodesBifrostSVG } from '../ui/logos/nodes/index.js';
 
-/* eslint-disable sort-keys */
+export * from './testingRelayRococo.js';
+export * from './testingRelayWestend.js';
 
 // The available endpoints that will show in the dropdown. For the most part (with the exception of
 // Polkadot) we try to keep this to live chains only, with RPCs hosted by the community/chain vendor
@@ -14,34 +15,34 @@ import { POLKADOT_GENESIS } from '../api/constants';
 //   providers: The actual hosted secure websocket endpoint
 //
 // IMPORTANT: Alphabetical based on text
-export const prodParasBifrost: EndpointOption[] = [
+export const bifrostChains: EndpointOption[] = [
   {
+    homepage: 'https://crowdloan.bifrost.app',
     info: 'bifrost',
-    homepage: 'https://bifrost.app',
-    paraId: 2030,
-    text: 'Bifrost (Polkadot)',
+    // paraId: 2030,
     providers: {
-      Liebi: 'wss://hk.p.bifrost-rpc.liebi.com/ws'
+      Liebi: 'wss://hk.p.bifrost-rpc.liebi.com/ws',
+      OnFinality: 'wss://bifrost-polkadot.api.onfinality.io/public-ws'
+    },
+    text: 'Bifrost (Polkadot)',
+    ui: {
+      color: '#5a25f0',
+      logo: nodesBifrostSVG
     }
   },
-
   {
+    homepage: 'https://ksm.vtoken.io/?ref=polkadotjs',
     info: 'bifrost',
-    homepage: 'https://bifrost.app',
-    paraId: 2001,
-    text: 'Bifrost (Kusama)',
+    // paraId: 2001,
     providers: {
+      Dwellir: 'wss://bifrost-rpc.dwellir.com',
       Liebi: 'wss://bifrost-rpc.liebi.com/ws',
-      OnFinality: 'wss://bifrost-parachain.api.onfinality.io/public-ws',
-      Dwellir: 'wss://bifrost-rpc.dwellir.com'
+      OnFinality: 'wss://bifrost-parachain.api.onfinality.io/public-ws'
+    },
+    text: 'Bifrost (Kusama)',
+    ui: {
+      color: '#5a25f0',
+      logo: nodesBifrostSVG
     }
   }
-
-  // {
-  //   info: 'bifrost',
-  //   text: 'Bifrost Stage Network',
-  //   providers: {
-  //     Liebi: 'wss://bifrost-rpc.testnet.liebi.com/ws'
-  //   }
-  // }
 ];

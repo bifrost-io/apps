@@ -1,19 +1,19 @@
-// Copyright 2017-2022 @polkadot/app-extrinsics authors & contributors
+// Copyright 2017-2023 @polkadot/app-extrinsics authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import type { TFunction } from 'i18next';
 import type { TabItem } from '@polkadot/react-components/Tabs/types';
 import type { AppProps as Props } from '@polkadot/react-components/types';
-import type { DecodedExtrinsic } from './types';
+import type { DecodedExtrinsic } from './types.js';
 
 import React, { useRef, useState } from 'react';
 import { Route, Switch } from 'react-router';
 
 import { Tabs } from '@polkadot/react-components';
 
-import Decoder from './Decoder';
-import Submission from './Submission';
-import { useTranslation } from './translate';
+import Decoder from './Decoder.js';
+import Submission from './Submission.js';
+import { useTranslation } from './translate.js';
 
 function createPathRef (basePath: string): Record<string, string | string[]> {
   return {

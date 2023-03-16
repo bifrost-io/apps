@@ -1,4 +1,4 @@
-// Copyright 2017-2022 @polkadot/app-signing authors & contributors
+// Copyright 2017-2023 @polkadot/app-signing authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import type { AppProps as Props } from '@polkadot/react-components/types';
@@ -8,9 +8,9 @@ import { Route, Switch } from 'react-router';
 
 import { Tabs } from '@polkadot/react-components';
 
-import Sign from './Sign';
-import { useTranslation } from './translate';
-import Verify from './Verify';
+import Sign from './Sign.js';
+import { useTranslation } from './translate.js';
+import Verify from './Verify.js';
 
 function SigningApp ({ basePath }: Props): React.ReactElement<Props> {
   const { t } = useTranslation();
