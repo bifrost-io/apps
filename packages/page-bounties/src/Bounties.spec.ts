@@ -1,4 +1,4 @@
-// Copyright 2017-2022 @polkadot/app-bounties authors & contributors
+// Copyright 2017-2023 @polkadot/app-bounties authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import type { SubmittableExtrinsic } from '@polkadot/api/types';
@@ -10,19 +10,19 @@ import { fireEvent } from '@testing-library/react';
 
 import { ApiPromise } from '@polkadot/api';
 import i18next from '@polkadot/react-components/i18n';
-import { createAugmentedApi } from '@polkadot/test-support/api';
+import { createAugmentedApi } from '@polkadot/test-support/api/index';
 import { balanceOf } from '@polkadot/test-support/creation/balance';
 import { BountyFactory } from '@polkadot/test-support/creation/bounties/bountyFactory';
 import { proposalFactory } from '@polkadot/test-support/creation/treasury/proposalFactory';
 import { mockHooks } from '@polkadot/test-support/hooks/mockHooks';
-import { MemoryStore } from '@polkadot/test-support/keyring';
 import { alice, bob } from '@polkadot/test-support/keyring/addresses';
+import { MemoryStore } from '@polkadot/test-support/keyring/index';
 import { keyring } from '@polkadot/ui-keyring';
 import { BN } from '@polkadot/util';
 
-import { defaultBountyUpdatePeriod, mockBountyHooks } from '../test/hooks/defaults';
-import { BountiesPage } from '../test/pages/bountiesPage';
-import { BLOCKS_PERCENTAGE_LEFT_TO_SHOW_WARNING } from './BountyNextActionInfo/BountyActionMessage';
+import { defaultBountyUpdatePeriod, mockBountyHooks } from '../test/hooks/defaults.js';
+import { BountiesPage } from '../test/pages/bountiesPage.js';
+import { BLOCKS_PERCENTAGE_LEFT_TO_SHOW_WARNING } from './BountyNextActionInfo/BountyActionMessage.js';
 
 jest.mock('@polkadot/react-hooks/useTreasury', () => ({
   useTreasury: () => mockHooks.treasury
@@ -60,7 +60,9 @@ describe('Bounties', () => {
 
   beforeAll(async () => {
     await i18next.changeLanguage('en');
+
     keyring.loadAll({ isDevelopment: true, store: new MemoryStore() });
+
     augmentedApi = createAugmentedApi();
     ({ aBounty, aBountyIndex, bountyStatusWith, bountyWith } = new BountyFactory(augmentedApi));
     ({ aProposal } = proposalFactory(augmentedApi));
@@ -347,7 +349,6 @@ describe('Bounties', () => {
       bountiesPage.renderOne(bounty);
 
       await bountiesPage.openRejectCuratorRole();
-
       await bountiesPage.clickButton('Reject');
 
       bountiesPage.expectExtrinsicQueued({ accountId: bob });
@@ -359,7 +360,6 @@ describe('Bounties', () => {
       bountiesPage.renderOne(bounty);
 
       await bountiesPage.openExtraActions();
-
       await bountiesPage.expectText('Give up');
       await bountiesPage.expectText('Slash curator (Council)');
     });

@@ -1,11 +1,11 @@
-// Copyright 2017-2022 @polkadot/apps-config authors & contributors
+// Copyright 2017-2023 @polkadot/apps-config authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import type { OverrideBundleDefinition } from '@polkadot/types/types';
 
 import * as typeDefs from '@zeitgeistpm/type-defs';
 
-import { typesFromDefs } from '../util';
+import { typesFromDefs } from '../util.js';
 
 const bundle = {
   alias: {

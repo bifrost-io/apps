@@ -1,9 +1,9 @@
-// Copyright 2017-2022 @polkadot/apps authors & contributors
+// Copyright 2017-2023 @polkadot/apps authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import type { KeyringJson, KeyringStore } from '@polkadot/ui-keyring/types';
 
-import { AccountStoreApi } from '../api/account-store-api';
+import { AccountStoreApi } from '../api/account-store-api.js';
 
 export class RemoteElectronStore implements KeyringStore {
   readonly #accountStore: AccountStoreApi;

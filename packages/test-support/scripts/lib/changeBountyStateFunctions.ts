@@ -1,13 +1,13 @@
-// Copyright 2017-2022 @polkadot/test-support authors & contributors
+// Copyright 2017-2023 @polkadot/test-support authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import type { ApiPromise } from '@polkadot/api';
 import type { KeyringPair } from '@polkadot/keyring/types';
 import type { BN } from '@polkadot/util';
 
-import { execute } from '@polkadot/test-support/transaction';
+import { execute } from '@polkadot/test-support/transaction/index';
 
-import { acceptMotion, fillTreasury, getMotion, proposeMotion } from './helpers';
+import { acceptMotion, fillTreasury, getMotion, proposeMotion } from './helpers.js';
 
 export async function acceptCurator (api: ApiPromise, id: number, signer: KeyringPair): Promise<void> {
   await execute(api.tx.bounties.acceptCurator(id), signer);

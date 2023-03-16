@@ -1,4 +1,4 @@
-// Copyright 2017-2022 @polkadot/app-rpc authors & contributors
+// Copyright 2017-2023 @polkadot/app-rpc authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import type { AppProps as Props } from '@polkadot/react-components/types';
@@ -8,8 +8,8 @@ import { Route, Switch } from 'react-router';
 
 import { Tabs } from '@polkadot/react-components';
 
-import Rpc from './Rpc';
-import { useTranslation } from './translate';
+import Rpc from './Rpc/index.js';
+import { useTranslation } from './translate.js';
 
 function RpcApp ({ basePath }: Props): React.ReactElement<Props> {
   const { t } = useTranslation();

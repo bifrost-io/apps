@@ -1,11 +1,11 @@
-// Copyright 2017-2022 @polkadot/test-supports authors & contributors
+// Copyright 2017-2023 @polkadot/test-supports authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import type { Registrar } from '@polkadot/react-hooks/types';
 
 import registry from '@polkadot/react-api/typeRegistry';
 
-import { bob, charlie, ferdie } from '../keyring';
+import { bob, charlie, ferdie } from '../keyring/index.js';
 
 export const mockRegistration = {
   judgements: [
